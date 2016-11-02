@@ -4,7 +4,10 @@ This tutorial guides you through the necessary preparation required to begin you
 It is very important that you have completed this and are comfortable with the example, before beginning the coursework.
 
 == Create Accounts
-To complete this coursework you will need accounts on GitHub and OpenShift.
+
+_This section applies to *all students*_
+
+To complete this coursework you will need accounts with GitHub and OpenShift.
 
 === GitHub
 GitHub offers the Git version control system as a service.
@@ -23,17 +26,14 @@ TIP: GitHub is a very popular service, and you are quite likely to use it in you
 === OpenShift
 OpenShift is a Platform as a Service (PaaS) Cloud offered by Red Hat.
 It can host many types of applications, but for this coursework you will be using it to host Java EE 6 applications on JBoss EAP.
-OpenShift has a free tier of membership, which you will use for the coursework.
 
-To create an account:
+An account with Openshift has been created for you. You should have been emailed the details of this account before the first practical session. If not, please contact Hugo Firth (h.firth@ncl.ac.uk).
 
-. Go to: https://www.openshift.com
-. Select "Signup for Free" under the "Online" option.
-. Fill in your details and select "Sign Up".
-. You should now receive an email containing a link to confirm your registration.  Click this link and confirm that you agree to OpenShift's terms of use.
-. Later on, when you are ready to deploy to Openshift - click link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/blob/v2.7.0-SNAPSHOT+NCL201415/README.md#build-and-deploy-the-quickstart---to-openshift[here]
+Later, when you are ready to deploy to Openshift - click link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here]
 
 == Environment Setup
+
+_This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
 Once you have confirmed (as mentioned above) your email address with OpenShift, you will be directed to a web page titled https://www.openshift.com/get-started["Get Started"].
 On this page you will need to select the *Windows* option at the top of the page and follow the "Installing the Client Tools on Windows" instructions subsequently displayed.
@@ -48,42 +48,66 @@ IMPORTANT: If you encounter a "Permission denied" warning when installing the rh
 IMPORTANT: If you encounter an "Error installing rhc" when running the command `gem install rhc` you have likely installed Ruby 1.9.3. You should uninstall RubyInstaller and instead instead select one of the Ruby 2.0.0 installers from http://http://rubyinstaller.org/downloads/["RubyInstaller Downloads"].
 
 == Run Example
+
 Now you will run a simple example.
 This example provides you with a starting point that you will build on when you come to doing the coursework.
 Therefore, it is very important that you get this working and become familiar with the code.
 
 === Download JBoss EAP 6.4.0
-1. Go link:http://www.jboss.org/products/eap/download/[here].
+
+_This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
+
+1. Go link:http://www.jboss.org/products/eap/download/[here] and click "View Older Downloads".
 2. Download the zip distribution of JBoss EAP 6.4.0.GA. _Note:_ You need to make sure you use this version of JBoss EAP as this matches the version you will be using on OpenShift. You will be required to register for the https://community.jboss.org/[JBoss community] website as part of the download process.
 3. Unzip JBoss EAP to somewhere on your computer.
 
 === Obtain the Contacts-Swagger Quickstart
 
-1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201516-RC1[here].
+_This section applies to *all students*_
+
+1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201617-RC1[here].
 2. Click on the *Download ZIP* link to obtain all the Quickstarts
-3. Unzip the download to somewhere on your computer.
+3. Unzip the download to somewhere on your computer. Be aware this may take some time as there are many files and you are likely writing to your (networked) `H` drive.
 4. Open a terminal and go to the `contacts-swagger` directory in the quickstart bundle you just unzipped.
 
 
 === Run the Quickstart
-1. Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201516-RC1/contacts-swagger[here], upto and including section "Run the Arquillian Tests". Make sure you follow the "Configure Maven" section correctly as these instructions are important.
-2. Now follow the "Build and Deploy the Quickstart to OpenShift" instructions link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201516-RC1#build-and-deploy-the-quickstart---to-openshift[here], including all the sub-sections that take you to the end of the page.
+
+_This section applies to *all students*_
+
+1. Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1/contacts-swagger[here], upto and including section "Run the Arquillian Tests". Make sure you follow the "Configure Maven" section correctly as these instructions are important.
+2. Now follow the "Build and Deploy the Quickstart to OpenShift" instructions link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here], including all the sub-sections that take you to the end of the page.
 
 
 == Eclipse Setup
-If you want to use Eclipse to edit the contacts-swagger example (and your coursework), you must follow these steps:
 
-. *Install m2eclipse*. Google "Install m2eclipse <your Eclipse version>". Note: the procedure differs between eclipse versions
+_This section applies to *all students*_ 
+
+If you are on a University machine and wish to use Eclipse to edit the contacts-swagger example (and your coursework), you should use the version of Eclipse neon provided on your uni machine.
+
+If you are on your own machine we recommend you visit the Eclipse https://www.eclipse.org/downloads/eclipse-packages/[downloads page] and select the "Eclipse IDE for Java EE Developers" which comes with Maven support.
+
+Regardless, once in Eclipse you must add the contacts-swagger example to your workspace using the following steps:
+
 . *Import the maven project into eclipse*.
   .. Within a new workspace, click 'File' -> 'Import...'
   .. Select 'Maven' -> 'Existing Maven Projects'
-  .. Click on 'Browse' and select the quickstart you wish to import.
+  .. Click on 'Browse' and select the contacts-swagger quickstart folder.
   .. Click 'Finish'
 
+TIP: You may use other IDEs or editors if you live, but we will not support their use, so be sure that they are able to import and work with Maven projects.
+
+IMPORTANT: When you first import the project, maven will download all of the project dependencies to an `.m2` repository folder on your `H` drive. This may take a *very* long time.
+
 == Working with Git
+
+_This section applies to *all students*_
+
 You will be using Git in the coursework for regular checkpoint and backup of your code to GitHub.
 You will also use Git to deploy new versions of your application to OpenShift.
 This section will show you how to create a copy of the 'contacts-swagger' example, ready fo you to extend in the coursework, and also how to push the code to GitHub and OpenShift.
+
+#TODO: edit below line as it is confusing.
 
 * Build on top of the contacts-swagger example, by moving your clone of the OpenShift git repository at contacts-swagger to some other location on your disk, where you want to develop your coursework submission.
 
@@ -106,9 +130,14 @@ During development of your application you may find it very useful to be able to
 
 === Deploying h2console
 
-Obtain the `h2console.war` file from here: https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.4.0.GA/h2-console , copy it into the "standalone/deployments" directory of your *EAP_HOME* directory and restart your local JBoss server.
+_This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
+
+Obtain the `h2console.war` file from link:https://github.com/jboss-developer/jboss-eap-quickstarts/tree/6.4.0.GA/h2-console[here] , copy it into the "standalone/deployments" directory of your *EAP_HOME* directory and restart your local JBoss server.
 
 === Accessing h2console
+
+_This section applies to *all students*_
+
 You can access the console at http://localhost:8080/h2console.
 
 To log into the datasource for your application, use the following details.

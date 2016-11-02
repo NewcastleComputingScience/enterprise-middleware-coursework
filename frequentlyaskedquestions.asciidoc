@@ -1,11 +1,21 @@
 = Frequently asked Questions
 
+# == Can I use the version of Eclipse IDE provided as part of CS Portable Apps?
+# No. The version of Eclipse IDE provided as part of CS Portable Apps is an old version which does not support the m2eclipse plugin. We suggest you download a copy of the latest version of Eclipse (Luna) from http://eclipse.org. The version you should download is "Eclipse IDE for Java EE Developers".
 
-== Can I use the version of Eclipse IDE provided as part of CS Portable Apps?
-No. The version of Eclipse IDE provided as part of CS Portable Apps is an old version which does not support the m2eclipse plugin. We suggest you download a copy of the latest version of Eclipse (Luna) from http://eclipse.org. The version you should download is "Eclipse IDE for Java EE Developers".
+== What editor/IDE should I use?
+You may use any editor with which you are comfortable to perform the coursework. However, we recommend using the version of the popular Eclipse IDE which is included with CS Portable Apps on each of your machines. 
+
+== I get `mvn is not recognized` when running maven commands
+If you are on a University machine then you are likely running the wrong version of `cmd.exe`.
+You must start `cmd` using the command *"CMD for Portable Apps and Java" in CS Portable Apps* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java) is available.
+
+If you are getting this error on your own machine, then you have likely configured your `PATH` incorrectly. We recommend you refer to the https://youtu.be/YK_YZNBz97A?t=16m30s[relevant section] of the tutorial video for help.
 
 == I can't see the .m2 folder mentioned in the tutorial for configuring Maven.
-Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside.
+Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside. 
+
+# TODO: Expland on this answer concerning the location of an .m2 folder for students using their own machines.
 
 == When running `mvn clean test -Parq-jbossas-remote` I get the error `Cannot deploy: test.war`
 At the top of the example test which you have been given as part of the quickstart (`ContactRegistrationTest.java`) you will see a `createTestArchive()` method annotated with `@Deployment`.

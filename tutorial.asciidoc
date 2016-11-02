@@ -35,6 +35,8 @@ Later, when you are ready to deploy to Openshift - click link:https://github.com
 
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
+link:https://youtu.be/YK_YZNBz97A?t=2m25s[Tutorial Video - 2m25s]
+
 Once you have confirmed (as mentioned above) your email address with OpenShift, you will be directed to a web page titled https://www.openshift.com/get-started["Get Started"].
 On this page you will need to select the *Windows* option at the top of the page and follow the "Installing the Client Tools on Windows" instructions subsequently displayed.
 Once you have completed these steps you should have successfully created an OpenShift account, installed Ruby 2.0.0 and the Openshift RHC Client Tools on your computer.
@@ -65,6 +67,8 @@ _This section of the tutorial only applies to students working on *their own* ma
 
 _This section applies to *all students*_
 
+link:https://youtu.be/YK_YZNBz97A?t=13m42s[Tutorial Video - 13m42s]
+
 1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201617-RC1[here].
 2. Click on the *Download ZIP* link to obtain all the Quickstarts
 3. Unzip the download to somewhere on your computer. Be aware this may take some time as there are many files and you are likely writing to your (networked) `H` drive.
@@ -74,6 +78,8 @@ _This section applies to *all students*_
 === Run the Quickstart
 
 _This section applies to *all students*_
+
+link:https://youtu.be/YK_YZNBz97A?t=16m6s[Tutorial Video - 16m6s]
 
 1. Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1/contacts-swagger[here], upto and including section "Run the Arquillian Tests". Make sure you follow the "Configure Maven" section correctly as these instructions are important.
 2. Now follow the "Build and Deploy the Quickstart to OpenShift" instructions link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here], including all the sub-sections that take you to the end of the page.

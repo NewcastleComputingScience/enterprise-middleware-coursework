@@ -27,9 +27,13 @@ TIP: GitHub is a very popular service, and you are quite likely to use it in you
 OpenShift is a Platform as a Service (PaaS) Cloud offered by Red Hat.
 It can host many types of applications, but for this coursework you will be using it to host Java EE 6 applications on JBoss EAP.
 
-An account with Openshift has been created for you. You should have been emailed the details of this account before the first practical session. If not, please contact Hugo Firth (h.firth@ncl.ac.uk).
+An account with Openshift has been created for you. If you created a link:https://developers.redhat.com/[RedHat Developers] account and emailed the details to Hugo Firth (h.firth@ncl.ac.uk), then your Openshift username and password correspond to those details. If you did not, get in touch with Hugo as soon as possible.  
 
 Later, when you are ready to deploy to Openshift - click link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here]
+
+Pay particular attention to the instructions to link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#migrate-the-quickstart-source[Migrate the Quickstart Source]. This describes how to copy the code for your `contacts-swagger` quickstart into the directory created for your Openshift application. Once you have completed this step you may deploy your project to Openshift using `git`. 
+
+We recommend you make the additions to the quickstart necessary for your coursework in this Openshift created directory, rather than in the original contacts-swagger directory amongst all the other quickstarts.
 
 == Environment Setup
 
@@ -41,7 +45,7 @@ Once you have confirmed (as mentioned above) your email address with OpenShift, 
 On this page you will need to select the *Windows* option at the top of the page and follow the "Installing the Client Tools on Windows" instructions subsequently displayed.
 Once you have completed these steps you should have successfully created an OpenShift account, installed Ruby 2.0.0 and the Openshift RHC Client Tools on your computer.
 
-* *Setup*. When running the `rhc setup` command you will be asked for your openshift *login* and *password*. Your login details are those used to register for OpenShift. When asked to provide a namespace for your projects, you should provide your student number (e.g 100826753).
+* *Setup*. When running the `rhc setup` command you will be asked for your openshift *login* and *password*. Your login details are those used to register for OpenShift. When asked to provide a namespace for your projects, you should provide your service number (e.g 810401) which is indicated link:https://github.com/NewcastleComputingScience/csc8104-assignment[here].
 
 IMPORTANT: If you encounter an "Access is denied" warning when running the RubyInstaller setup program, you should copy the installer into `C:/temp`, right click the executable and select "Run as Administrator". You will be prompted for your admin password for your machine, and Ruby should then install successfully.
 
@@ -72,8 +76,9 @@ link:https://youtu.be/YK_YZNBz97A?t=13m42s[Tutorial Video - 13m42s]
 1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201617-RC1[here].
 2. Click on the *Download ZIP* link to obtain all the Quickstarts
 3. Unzip the download to somewhere on your computer. Be aware this may take some time as there are many files and you are likely writing to your (networked) `H` drive.
-4. Open a terminal and go to the `contacts-swagger` directory in the quickstart bundle you just unzipped.
+4. Open `cmd.exe` and go to the `contacts-swagger` directory in the quickstart bundle you just unzipped.
 
+NOTE: You must start `cmd` using the command *"CMD for Portable Apps and Java" in CS Portable Apps* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java) is available.
 
 === Run the Quickstart
 
@@ -81,7 +86,7 @@ _This section applies to *all students*_
 
 link:https://youtu.be/YK_YZNBz97A?t=16m6s[Tutorial Video - 16m6s]
 
-1. Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1/contacts-swagger[here], upto and including section "Run the Arquillian Tests". Make sure you follow the "Configure Maven" section correctly as these instructions are important.
+1. Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1/contacts-swagger[here], upto and including section "Run the Arquillian Tests". If you are on your own machine, make sure you follow the "Configure Maven" section correctly as these instructions are important.
 2. Now follow the "Build and Deploy the Quickstart to OpenShift" instructions link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here], including all the sub-sections that take you to the end of the page.
 
 
@@ -112,8 +117,6 @@ _This section applies to *all students*_
 You will be using Git in the coursework for regular checkpoint and backup of your code to GitHub.
 You will also use Git to deploy new versions of your application to OpenShift.
 This section will show you how to create a copy of the 'contacts-swagger' example, ready fo you to extend in the coursework, and also how to push the code to GitHub and OpenShift.
-
-#TODO: edit below line as it is confusing.
 
 * Build on top of the contacts-swagger example, by moving your clone of the OpenShift git repository at contacts-swagger to some other location on your disk, where you want to develop your coursework submission.
 

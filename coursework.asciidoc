@@ -62,7 +62,7 @@ The easiest way to work, is to deploy your application to a local version of JBo
 
 During parts 1 & 2 you will only test your API through Arquillian tests and one of the other methods presented to you during the tutorial (The Swagger documentation or CURL).
 
-Before undertaking parts 3 of the coursework it may help to briefly familiarise yourself with the link:https://angularjs.org/[Angular.js] framework. We suggest going through the link:https://docs.angularjs.org/tutorial[official tutorial] to achieve this.
+After having completed part 3 of the coursework, if you are trying to "wire up" your service to the provided frontend application, it may help to briefly familiarise yourself with the link:https://angularjs.org/[Angular.js] framework. We suggest going through the link:https://docs.angularjs.org/tutorial[official tutorial] to achieve this.
 
 == Part 1
 

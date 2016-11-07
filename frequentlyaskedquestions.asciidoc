@@ -1,8 +1,5 @@
 = Frequently asked Questions
 
-# == Can I use the version of Eclipse IDE provided as part of CS Portable Apps?
-# No. The version of Eclipse IDE provided as part of CS Portable Apps is an old version which does not support the m2eclipse plugin. We suggest you download a copy of the latest version of Eclipse (Luna) from http://eclipse.org. The version you should download is "Eclipse IDE for Java EE Developers".
-
 == What editor/IDE should I use?
 You may use any editor with which you are comfortable to perform the coursework. However, we recommend using the version of the popular Eclipse IDE which is included with CS Portable Apps on each of your machines. 
 

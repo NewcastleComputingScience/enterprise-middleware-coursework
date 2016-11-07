@@ -15,8 +15,6 @@ _This section of the tutorial only applies to students working on *their own* ma
 
 Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside. 
 
-# TODO: Expland on this answer concerning the location of an .m2 folder for students using their own machines.
-
 == When running `mvn clean test -Parq-jbossas-remote` I get the error `Cannot deploy: test.war`
 At the top of the example test which you have been given as part of the quickstart (`ContactRegistrationTest.java`) you will see a `createTestArchive()` method annotated with `@Deployment`.
 This method is used to create a small .war file, containing the classes and their dependencies which are needed for your test.

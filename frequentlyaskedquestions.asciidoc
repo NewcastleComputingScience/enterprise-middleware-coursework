@@ -95,3 +95,20 @@ If, when trying to log into `h2console` to try and view your application's datab
 General error: “javax.naming.NameNotFoundException: datasources/ContactsSwaggerQuickstartDS — service jboss.naming.contex.java.jboss.datasources.ContactsSwaggerQuickStartDS"
 ```
 make sure that your JDBC Url field in the h2console login page is *exactly* `java:jboss/datasources/JbossContactsSwaggerQuickstartDS`. Be aware that this field's value may have been autopopulated with an incorrect value. 
+
+== Should I provide `DELETE` endpoints for my Customer/Commodity REST resources?
+
+In the user stories for flight, taxi and hotel it specifically states the following: 
+
+____
+*Not* be able to delete Customer or Flight records (these are unsupported operations).
+____
+
+However in the instructions for Part 2 of the coursework it states that you should implement:
+
+____
+ * REST endpoints to allow for the deletion of Customer and Commodity (Taxi/Hotel/Flight) resources.
+ * Cascading deletion of related entities. Specifically, if a Commodity entity is deleted then any bookings made for it should also be deleted. Likewise, if a Customer entity is deleted, any bookings made by it should also be deleted.
+____
+
+This is obviously inconsistent and confusing, for which I apologise. The intention is that you do not need to provide delete operations for part 1. You will be able to get full marks for part 1 without having them there, however, they should be added when performing part 2, in order to verify that you have properly implemented relationship annotations and cascading deletes. 

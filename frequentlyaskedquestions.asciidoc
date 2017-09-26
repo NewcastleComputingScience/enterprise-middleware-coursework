@@ -1,11 +1,11 @@
 = Frequently asked Questions
 
 == What editor/IDE should I use?
-You may use any editor with which you are comfortable to perform the coursework. However, we recommend using the version of the popular Eclipse IDE which is included with CS Portable Apps on each of your machines. 
+You may use any editor with which you are comfortable to perform the coursework. However, we recommend using the version of the popular Eclipse IDE which is included within the Programming IDE's shortcut on each of your machines.
 
 == I get `mvn is not recognized` when running maven commands
 If you are on a University machine then you are likely running the wrong version of `cmd.exe`.
-You must start `cmd` using the command *"CMD for Portable Apps and Java" in CS Portable Apps* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java) is available.
+You must start `cmd` by navigating to *Start -> Programming and Databases -> Command Prompt - development tools (64bit)* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java, oc) is available.
 
 If you are getting this error on your own machine, then you have likely configured your `PATH` incorrectly. We recommend you refer to the https://youtu.be/YK_YZNBz97A?t=16m30s[relevant section] of the tutorial video for help.
 
@@ -13,7 +13,7 @@ If you are getting this error on your own machine, then you have likely configur
 
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
-Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside. 
+Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside.
 
 == When running `mvn clean test -Parq-jbossas-remote` I get the error `Cannot deploy: test.war`
 At the top of the example test which you have been given as part of the quickstart (`ContactRegistrationTest.java`) you will see a `createTestArchive()` method annotated with `@Deployment`.
@@ -39,7 +39,7 @@ The general `createTestArchive()` method which we recommend is as follows:
             .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
             .addAsWebInfResource("arquillian-ds.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-        
+
         return archive;
     }
 ```
@@ -51,7 +51,7 @@ If you still run into problems, please ask a demonstrator for help.
 The base quickstart which you have been provided with has been heavily modified to include extensive comments and clear examples of the techniques we expect you to use.
 If you cannot work out how to do a step in the coursework, we suggest you look closely at how it is done in the quickstart.
 
-Failing that we suggest the following useful documentation:  
+Failing that we suggest the following useful documentation:
 
 * link:http://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/[Hibernate docs]
 * link:http://docs.jboss.org/resteasy/docs/2.3.7.Final/userguide/html_single/index.html[JaxRS / RestEasy docs]
@@ -61,7 +61,7 @@ Failing that we suggest the following useful documentation:
 == Can I use `"..."` instead of cURL?
 
 There are several good plugins which replicate the functionality of the cURL command line tool in a more user friendly manner.
-We don't mind if you choose to use one of these tools instead of cURL when testing your application. 
+We don't mind if you choose to use one of these tools instead of cURL when testing your application.
 
 Infact, we recommend a great Chrome extension called link:https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en[Postman].
 
@@ -94,11 +94,11 @@ If, when trying to log into `h2console` to try and view your application's datab
 ```
 General error: “javax.naming.NameNotFoundException: datasources/ContactsSwaggerQuickstartDS — service jboss.naming.contex.java.jboss.datasources.ContactsSwaggerQuickStartDS"
 ```
-make sure that your JDBC Url field in the h2console login page is *exactly* `java:jboss/datasources/JbossContactsSwaggerQuickstartDS`. Be aware that this field's value may have been autopopulated with an incorrect value. 
+make sure that your JDBC Url field in the h2console login page is *exactly* `java:jboss/datasources/JbossContactsSwaggerQuickstartDS`. Be aware that this field's value may have been autopopulated with an incorrect value.
 
 == Should I provide `DELETE` endpoints for my Customer/Commodity REST resources?
 
-In the user stories for flight, taxi and hotel it specifically states the following: 
+In the user stories for flight, taxi and hotel it specifically states the following:
 
 ____
 *Not* be able to delete Customer or Flight records (these are unsupported operations).
@@ -111,4 +111,4 @@ ____
  * Cascading deletion of related entities. Specifically, if a Commodity entity is deleted then any bookings made for it should also be deleted. Likewise, if a Customer entity is deleted, any bookings made by it should also be deleted.
 ____
 
-This is obviously inconsistent and confusing, for which I apologise. The intention is that you do not need to provide delete operations for part 1. You will be able to get full marks for part 1 without having them there, however, they should be added when performing part 2, in order to verify that you have properly implemented relationship annotations and cascading deletes. 
+This is obviously inconsistent and confusing, for which I apologise. The intention is that you do not need to provide delete operations for part 1. You will be able to get full marks for part 1 without having them there, however, they should be added when performing part 2, in order to verify that you have properly implemented relationship annotations and cascading deletes.

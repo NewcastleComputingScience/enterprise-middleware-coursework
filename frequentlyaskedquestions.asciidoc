@@ -15,34 +15,29 @@ _This section of the tutorial only applies to students working on *their own* ma
 
 Don't worry. If you do not already have a ".m2" folder, you can simply create one and place the new settings.xml file inside.
 
-== When running `mvn clean test -Parq-jbossas-remote` I get the error `Cannot deploy: test.war`
+== When running `mvn clean test -Parq-wildfly-remote` I get the error `Cannot deploy: test.war`
 At the top of the example test which you have been given as part of the quickstart (`ContactRegistrationTest.java`) you will see a `createTestArchive()` method annotated with `@Deployment`.
 This method is used to create a small .war file, containing the classes and their dependencies which are needed for your test.
 The general `createTestArchive()` method which we recommend is as follows:
 
-``` java
-    @Deployment
-    public static Archive<?> createTestArchive() {
-        //HttpComponents and org.JSON are required by ContactService
-        File[] libs = Maven.resolver().loadPomFromFile("pom.xml").resolve(
-                "org.apache.httpcomponents:httpclient:4.3.2",
-                "org.json:json:20140107",
-                "org.codehaus.jackson:jackson-core-asl:1.9.9",
-                "org.codehaus.jackson:jackson-mapper-asl:1.9.9",
-                "org.codehaus.jackson:jackson-jaxrs:1.9.9"
-        ).withTransitivity().asFile();
+[source,java]
+----
+@Deployment
+public static Archive<?> createTestArchive() {
+    File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
+            .resolve(
+                    "io.swagger:swagger-jaxrs:1.5.15"
+    ).withTransitivity().asFile();
 
-        Archive<?> archive = ShrinkWrap
+    return ShrinkWrap
             .create(WebArchive.class, "test.war")
             .addPackages(true, "org.jboss.quickstarts.wfk")
             .addAsLibraries(libs)
             .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
             .addAsWebInfResource("arquillian-ds.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-
-        return archive;
-    }
-```
+}
+----
 
 If you still run into problems, please ask a demonstrator for help.
 
@@ -53,9 +48,9 @@ If you cannot work out how to do a step in the coursework, we suggest you look c
 
 Failing that we suggest the following useful documentation:
 
-* link:http://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/[Hibernate docs]
-* link:http://docs.jboss.org/resteasy/docs/2.3.7.Final/userguide/html_single/index.html[JaxRS / RestEasy docs]
-* link:https://github.com/FasterXML/jackson-docs[Jackson docs (we use v1.9.*)]
+* link:http://docs.jboss.org/hibernate/orm/5.0/manual/en-US/html/[Hibernate docs]
+* link:http://docs.jboss.org/resteasy/docs/3.0.16.Final/userguide/html_single/index.html[JaxRS / RestEasy docs]
+* link:https://github.com/FasterXML/jackson-docs[Jackson docs]
 * link:https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X[Swagger docs]
 
 == Can I use `"..."` instead of cURL?
@@ -63,7 +58,7 @@ Failing that we suggest the following useful documentation:
 There are several good plugins which replicate the functionality of the cURL command line tool in a more user friendly manner.
 We don't mind if you choose to use one of these tools instead of cURL when testing your application.
 
-Infact, we recommend a great Chrome extension called link:https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en[Postman].
+Infact, we recommend a great Chrome extension called link:https://www.getpostman.com/[Postman].
 
 You may of course use your Swagger documentation to interact with your API, in addition to any other options.
 

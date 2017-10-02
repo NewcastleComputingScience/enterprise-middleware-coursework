@@ -33,7 +33,7 @@ _This section applies to **all students**_
 
     oc login https://api.starter-us-west-2.openshift.com --token=<hidden>
 
-2. You can now create a project which will contain all of the different components of our deployment using the following command. Provide an appropriate unique name for the project such as `csc8104-firstname-lastname`
+2. You can now create a project which will contain all of the different components of our deployment using the following command. Provide an appropriate unique name for the project such as `csc8104-studentnumber`
 
     oc new-project <project-name>
 

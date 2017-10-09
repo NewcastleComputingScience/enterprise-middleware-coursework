@@ -13,7 +13,7 @@ NOTE: Please check the limitations of the *Starter* accounts https://www.openshi
 
 === Environment Setup
 
-link:https://youtu.be/YK_YZNBz97A?t=2m25s[Tutorial Video - 2m25s] (WIP)
+link:https://youtu.be/X0HlR40DkxI?t=12m53s[Tutorial Video - 12m53s]
 
 At this stage you should have the accounts setup and the required applications installed to deploy your application to OpenShift. If you are not currently at this stage please refer to the link:./tutorial.asciidoc[tutorial] document.
 
@@ -44,6 +44,8 @@ Once you have completed these steps you should have successfully created an Open
 
 === GitHub Access Token [[github_token]]
 
+link:https://youtu.be/X0HlR40DkxI?t=15m44s[Tutorial Video - 15m44s]
+
 To permit OpenShift to access and view your private repositories, you must create a personal access token. This provides a secure method for an application to authenticate itself either over HTTPS calls or through use of the Git API.
 
 1. Access https://github.com/settings/tokens
@@ -53,6 +55,8 @@ To permit OpenShift to access and view your private repositories, you must creat
 IMPORTANT: Make sure you either copy the token or do not navigate away from this page for now! as GitHub states, you will only have to the token while on that page
 
 === Create a new Secret [[openshift_secret]]
+
+link:https://youtu.be/X0HlR40DkxI?t=16m34s[Tutorial Video - 16m34s]
 
 We need to create a secret using this GitHub token, which we can then use to permit builds from our source code.
 
@@ -74,6 +78,8 @@ oc secrets add serviceaccount/builder secrets/github-secret
 
 == Deploying the Quickstart
 
+link:https://youtu.be/X0HlR40DkxI?t=17m20s[Tutorial Video - 17m20s]
+
 === JBoss EAP Image Stream
 
 We need to create a new JBoss EAP Image Stream by importing from the RedHat container registry. This will sit as a base for our application to be built on top of. The current latest version of this image stream can be found  https://access.redhat.com/containers/#/registry.access.redhat.com/jboss-eap-7/eap70-openshift[here]. Run the command below to drag this image stream into the local namespace.
@@ -89,7 +95,6 @@ The next stage is to create a new build using the JBoss EAP 7 image stream as a 
 Use the command below to create a new build from your private repository. Make sure to change the link to the correct location of your repository.
 
 [source,bash]
-.Model solution build config
 ----
 oc new-build eap70-openshift~"https://github.com/NewcastleComputingScience/csc8104-your-name.git" --name=csc8104-build --to=csc8104-build-stream
 ----
@@ -113,6 +118,8 @@ IMPORTANT: You can view the progress of the build by pressing 'View Log'. This m
 Once our image builds successfully it is pushed to the image stream that we created, called `csc8104-build-stream`. Our most recent image is given the `latest` tag.
 
 === Create Deployment
+
+link:https://youtu.be/X0HlR40DkxI?t=20m24s[Tutorial Video - 20m24s]
 
 Now that we are successfully building our application into an image, we can create a deployment. This will create a new service and deploy a new container (pod) with our image running.
 

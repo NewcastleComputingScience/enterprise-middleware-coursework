@@ -7,7 +7,7 @@ You may use any editor with which you are comfortable to perform the coursework.
 If you are on a University machine then you are likely running the wrong version of `cmd.exe`.
 You must start `cmd` by navigating to *Start -> Programming and Databases -> Command Prompt - development tools (64bit)* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java, oc) is available.
 
-If you are getting this error on your own machine, then you have likely configured your `PATH` incorrectly. We recommend you refer to the https://youtu.be/YK_YZNBz97A?t=16m30s[relevant section] of the tutorial video for help.
+If you are getting this error on your own machine, then you have likely configured your `PATH` incorrectly. We recommend you refer to the https://maven.apache.org/install.html[installation guide] (and Windows Tips) of the Apache Maven documentation.
 
 == I can't see the .m2 folder mentioned in the tutorial for configuring Maven.
 

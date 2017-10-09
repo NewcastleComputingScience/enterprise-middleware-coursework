@@ -40,7 +40,7 @@ For this project you *must* use a link:http://maven.apache.org/[Maven] build for
 
 *Storing your work*
 ==========================
-You should save your work using the link:http://git-scm.com/[Git] version control system, regularly commiting changes and pushing to the provided link:http://github.com/[Github] repositoy.
+You should save your work using the link:http://git-scm.com/[Git] version control system, regularly commiting changes and pushing to the provided link:http://github.com/[GitHub] repositoy.
 
 You should push commits of your coursework regularly to your GitHub repo. It is a good idea to do so every time you get a small piece of functionality working. This ensures that you can move back to a working state if you get in a mess. It also ensures that you have a backup and that the demonstrators can view your code and track progress.
 
@@ -119,7 +119,7 @@ You will probably need an Entity for each of your resources.
 2. Taxi/Flight/Hotel. A bean to hold the data you wish to collect about each item you have available for booking.
 3. Booking. A bean representing the booking and linking to the customer who made the booking and to the item being booked.
 
-TIP: Keep these entities simple. Just provide the minimum information required to fullfil the requirements. Use @Annotations, like those found in the base _contacts-swagger_ `Contact` class, to specify validation constraints on your information (like the minimum length of a name). You may however wish to read about link:https://docs.oracle.com/javaee/7/tutorial/persistence-intro001.htm[entity relationship @Annotations].
+TIP: Keep these entities simple. Just provide the minimum information required to fulfil the requirements. Use @Annotations, like those found in the base _contacts-swagger_ `Contact` class, to specify validation constraints on your information (like the minimum length of a name). You may however wish to read about link:https://docs.oracle.com/javaee/7/tutorial/persistence-intro001.htm[entity relationship @Annotations].
 
 TIP: When you are testing your application you may find it useful to pre-populate your database with a number of example entities. One way to achieve this is to add SQL insert statements into `src/main/resources/import.sql`.
 

@@ -9,6 +9,10 @@ Make sure that you fully complete the instructions listed here, up to the point 
 
 NOTE: Please check the limitations of the *Starter* accounts https://www.openshift.com/pricing/index.html[here]. In particular; "Your project resources sleep after 30 minutes of inactivity, and must sleep 18 hours in a 72 hour period".
 
+Once you have completed the instructions here you expect your OpenShift resources to be similar to the following image.
+
+image::images/openshift-overview.png["OpenShift Overview",align="center"]
+
 == Initial Setup
 
 === Environment Setup
@@ -105,7 +109,7 @@ NOTE: Notice that we are creating a new image stream called csc8104-build-stream
 
 ==== Further configuration
 
-From the OpenShift web based developer console, access 'Builds' -> 'Builds' -> 'csc8104-build' -> 'Actions' -> 'Edit' -> 'Show advanced options'. From here we need to add the secret containing our GitHub access token to the build.
+From the OpenShift web based developer console, access *Builds -> Builds -> csc8104-build -> Actions -> Edit -> Show advanced options*. From here we need to add the secret containing our GitHub access token to the build.
 
 Select `github-secret` from the dropdown for the 'Source secret' field.
 

@@ -25,9 +25,9 @@ This coursework covers a large number of technologies. The challenge here is to 
 * *Bean Validation*. This technology allows you to specify constraints on your data and assists with validation.
 * *Arquillian*. With this tool you will be able to write tests that run inside the application server.
 * *Maven*. Your application will be built and deployed with this tool.
-* *OpenShift*. This is the Platform as a Service (PaaS) that you will use to deploy your application to the Cloud.
+* *Azure*. This is Microsoft's cloud platform, that you will use to deploy your application.
 * *JAX-RS*. This technology provides the Java EE API for developing REST services. You will use this technology to communicate between distributed components of your application (web-interfaces & other services).
-* *Git*. This is a distributed version control system and will be used to backup your code and for deploying it to OpenShift.
+* *Git*. This is a distributed version control system and will be used to backup your code and for deploying it to Azure.
 * *Swagger*. Swagger is a simple yet powerful representation of your RESTful API. Using Java @Annotations Swagger will generate documentation for JAX-RS endpoints as part of the project build process.
 
 == Project Requirements
@@ -53,9 +53,9 @@ You *must* produce link:http://arquillian.org/[Arquillian] tests for testing you
 ==========================
 
 == General Process
-You should build on the _contacts-swagger_ example from the tutorial. You do not have time to create a new application from scratch. Don't worry about renaming the packages or the OpenShift application name, doing so is likely to get you into a mess.
+You should build on the _contacts-swagger_ example from the tutorial. You do not have time to create a new application from scratch. Don't worry about renaming the packages or the application name, doing so is likely to get you into a mess.
 
-The easiest way to work, is to deploy your application to a local version of JBoss EAP during development. Only create new builds from your code in OpenShift periodically, when you have a new set of features working and all your tests pass. This is especially important for part three, as you will cause your colleagues problems if your service becomes unavailable.
+The easiest way to work, is to deploy your application to a local version of JBoss EAP during development. Only push your code to Azure periodically, when you have a new set of features working and all your tests pass. This is especially important for part three, as you will cause your colleagues problems if your service becomes unavailable.
 
 == Notes
 
@@ -103,7 +103,7 @@ You must document your endpoints using Swagger link:https://github.com/swagger-a
 
 
 
-This is essential for any third-party who wishes to use your service. You will need to refer any colleagues using your service in Part 3 to your Swagger doc page, which will be deployed to Openshift along with your service. An example of good Swagger documentation is included in the base quickstart.
+This is essential for any third-party who wishes to use your service. You will need to refer any colleagues using your service in Part 3 to your Swagger doc page, which will be deployed to Azure along with your service. An example of good Swagger documentation is included in the base quickstart.
 
 TIP: Much of the information about each REST endpoint, such as URL structure and request method, may be automatically discovered by Swagger. All Swagger @Annotations should be included in the relevant `*RestService` class.
 

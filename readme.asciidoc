@@ -1,6 +1,6 @@
 = Enterprise Middleware Coursework
 
-This coursework covers the development of an enterprise application using Java EE technologies deployed to a PaaS cloud. 
+This coursework covers the development of an enterprise application using Java EE technologies deployed to a PaaS cloud.
 The coursework is designed to give students hands on experience with building enterprise applications.
 Furthermore, all the technologies used are production grade, given the students the experience and knowledge they need to build a real enterprise application.
 
@@ -20,9 +20,9 @@ This sample application us then used to build upon during the coursework.
 
 link:./tutorial.asciidoc[View the tutorial document]
 
-There is also a video available to https://www.youtube.com/watch?v=YK_YZNBz97A[watch here].
-In this video a member of staff, at Newcastle University, walks through the tutorial with the students.
-This video has a few Newcastle specific bits in, but could be valuable to your students anyway, providing they understand this caveat.
+// There is also a video available to https://www.youtube.com/watch?v=YK_YZNBz97A[watch here].
+// In this video a member of staff, at Newcastle University, walks through the tutorial with the students.
+// This video has a few Newcastle specific bits in, but could be valuable to your students anyway, providing they understand this caveat.
 
 == Coursework
 This document tells the students what they need to do during the coursework.

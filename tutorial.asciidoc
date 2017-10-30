@@ -21,7 +21,7 @@ If you do not already have an account you will need to:
 2. Fill in your details and select "Sign up for GitHub."
 3. Obtain a private repository. The steps to do this should have been provided to you already.
 
-TIP: GitHub is a very popular service, and you are quite likely to use it in your profesional career; especially if you work with open source software in some capacity.
+TIP: GitHub is a very popular service, and you are quite likely to use it in your professional career; especially if you work with open source software in some capacity.
 
 === OpenShift [[openshift]]
 OpenShift is a Platform as a Service (PaaS) Cloud offered by Red Hat.
@@ -41,11 +41,6 @@ Please return to this section once you have completed the following steps, and y
 
 You will now be able to proceed to setup a new build on OpenShift from the quickstart by following the guide link:./openshift_setup.asciidoc[here].
 
-// Later, when you are ready to deploy to Openshift - click link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#build-and-deploy-the-quickstart---to-openshift[here]
-//
-// Pay particular attention to the instructions to link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/v2.7.0%2BNCL201617-RC1#migrate-the-quickstart-source[Migrate the Quickstart Source]. This describes how to copy the code for your `contacts-swagger` quickstart into the directory created for your Openshift application. Once you have completed this step you may deploy your project to Openshift using `git`.
-//
-// We recommend you make the additions to the quickstart necessary for your coursework in this Openshift created directory, rather than in the original contacts-swagger directory amongst all the other quickstarts.
 
 == Environment Setup
 
@@ -110,7 +105,7 @@ This section will show you how to create a copy of the 'contacts-swagger' exampl
 * Copy the contents of the contacts-swagger quickstart into your private repository, which you downloaded in step <<obtain_quickstart>>.
 * Now you need to push this code to your git repository on GitHub.
 
-    git add *
+    git add .
     git commit -m "contacts-swagger added to repository"
     git push origin master
 
@@ -151,7 +146,7 @@ During development of your application you may find it very useful to be able to
 
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
-Obtain the `h2console.war` file from link:https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.0.0.Final/h2-consoles[here], copy it into the "standalone/deployments" directory of your *EAP_HOME* directory. You may also need to restart your local JBoss server.
+Obtain the `h2console.war` file from link:https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.0.0.Final/h2-console[here], copy it into the "standalone/deployments" directory of your *EAP_HOME* directory. You may also need to restart your local JBoss server.
 
 === Accessing h2console
 
@@ -184,7 +179,7 @@ An example of swagger documentation can be found link:http://petstore.swagger.io
 
 Another common method of manual testing of APIs is sending http requests from the command line, using a tool called link:http://curl.haxx.se/[cURL].
 
-cURL may not be available on the university machines this year, if you are unsure, please contact a member of the teaching staff. However, if you would like to use this tool, feel free to install and use this from your own machine.
+cURL has not been installed as part of the command line tools on the university machines this year, however it is available as part of Git Bash, if you have any issues please ask a member of the teaching staff. Feel free to install and use this from your own machine also.
 
 To give you an example of how you might use cURL to see what your API is doing, once the QuickStart is running (locally) you could execute the following commands (in cmd.exe):
 

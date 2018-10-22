@@ -131,7 +131,7 @@ IMPORTANT: You can view the progress of the build by pressing 'View Log'. This m
 
 Once our image builds successfully it is pushed to the image stream that we created, called `csc8104-build-stream`. Our most recent image is given the `latest` tag.
 
-==== Further configuration
+=== Further configuration
 
 *_This applies to students working on Unviersity machines, where the `--source-secret` could not be provided from within `oc`!_*
 

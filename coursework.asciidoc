@@ -179,7 +179,7 @@ TIP: You will need to inject a predefined implementation of the `UserTransaction
 * If you provide a valid Customer but an invalid Booking to your `GuestBooking` endpoint, is the Customer present in the databse?
 
 == Part 3
-You will now need to integrate three _commodity_ REST resources to produce a fourth, aggregate, resource: a TravelAgent resource. You will use your own resources and along with two more made available through the APIs of your colleagues.
+You will now need to integrate three _commodity_ REST resources to produce a fourth, aggregate, resource: a TravelAgent resource. You will use your own resources along with two more made available through the APIs of your colleagues.
 
 You will do this using the link:http://docs.jboss.org/resteasy/docs/3.0.16.Final/userguide/html_single/index.html#RESTEasy_Client_Framework[RESTEasy client framework], as exemplified by the `contact-swagger` quickstart's `area` package.
 
@@ -202,7 +202,9 @@ TIP: You may find that you are ready to use your colleagues’ services before t
 
 TIP: You may also find it hard to utilize the exact service types specified above, due to the progress of your colleagues. In this case you may duplicate the service types; for example, two Taxi services and one Flight service. However, you must make sure that the two services you select are offered by two different colleagues!
 
-TIP: You should create a Customer record in each of your colleague's applications to represent the customer of bookings made by your travel agent. You should *not* try and create a new customer with each base service for every TravelAgent booking. This makes the TravelAgent service more complex to implement, and is not how a real travel agent would work in any case.
+TIP: You should create a Customer record in each of your colleague's applications to represent your travel agent, and make all booking's using this customer. You should *not* try and create a new customer with each base service for every TravelAgent booking. This makes the TravelAgent service more complex to implement, and is not how a real travel agent would work in any case.
+
+TIP: When storing your TravelAgentBooking locally, as with part two, you can link the Booking for your local commodity using link:https://docs.oracle.com/javaee/7/tutorial/persistence-intro001.htm[Entity relationship @Annotations], and simply store the ID's of the upstream bookings locally.
 
 === RESTful Resource
 

@@ -87,7 +87,7 @@ _This section applies to **all students**_
 
 link:https://youtu.be/X0HlR40DkxI?t=6m04s[Tutorial Video - 6m04s]
 
-Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2017_18/[here], up to and including section "Run the Arquillian Tests".
+Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2018_19/[here], up to and including section "Run the Arquillian Tests".
 
 == Working with Git [[repository_setup]]
 

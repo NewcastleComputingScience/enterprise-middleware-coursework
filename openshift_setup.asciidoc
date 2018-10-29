@@ -3,11 +3,11 @@
 :location: <example>
 :default_url: https://console.starter-{location}.openshift.com
 
-OpenShift 3 is RedHat's Platform as a Service (PaaS) offering. The system wraps around Kubernetes, and so some of the commands and terminology used refers to the underlying infrastructure. The system consists of deploying applications from images where we can easily recreate and scale up and down services. A service can consist of many different 'pods', which are instances of our application to permit distribution of load. For more information see link:https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/[What is Kubernetes?]. For your coursework, you will have a single service running which will contain your API and have a single running pod. This fits within the constraints of the *Starter* OpenShift accounts.
+OpenShift 3 is RedHat's Platform as a Service (PaaS) offering. The system wraps around Kubernetes, and so some of the commands and terminology used refers to the underlying infrastructure. The system consists of deploying applications from images where we can easily recreate and scale up and down services. A service can consist of many different 'pods', which are instances of our application to permit distribution of load. For more information see link:https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/[What is Kubernetes?]. For your coursework, you will have a single service running which will contain your API and have a single running pod.
 
-Make sure that you fully complete the instructions listed here, up to the point where you must email Adam Cattermole (a.cattermole@ncl.ac.uk) with your Route information!
+Make sure that you fully complete the instructions listed here, up to the point where you must email Adam Cattermole (a.cattermole@newcastle.ac.uk) with your Route information!
 
-NOTE: Please check the limitations of the *Starter* accounts https://www.openshift.com/pricing/index.html[here]. In particular; "Your project resources sleep after 30 minutes of inactivity, and must sleep 18 hours in a 72 hour period".
+// NOTE: Please check the limitations of the *Starter* accounts https://www.openshift.com/pricing/index.html[here]. In particular; "Your project resources sleep after 30 minutes of inactivity, and must sleep 18 hours in a 72 hour period".
 
 Once you have completed the instructions here you expect your OpenShift resources to be similar to the following image.
 
@@ -29,17 +29,17 @@ From the console you must select the information button in the top right, and th
 
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
-* From link:https://console.starter-us-east-1.openshift.com/console/command-line[here] you can follow the instructions to install the `oc` CLI for your platform
+* From link:https://console.pro-us-east-1.openshift.com/console/command-line[here] you can follow the instructions to install the `oc` CLI for your platform
 
 _This section applies to **all students**_
 
 1. To login to `oc` navigate to the main OpenShift dashboard and select *Copy Login Command* from the account menu and paste it into `cmd`. This command contains your personal access token.
 
-    oc login https://api.starter-<example>.openshift.com --token=<hidden>
+    oc login https://api.pro-us-east-1.openshift.com --token=<hidden>
 
-2. You can now create a project which will contain all of the different components of our deployment using the following command. Provide an appropriate unique name for the project such as `csc8104-<studentnumber>`
+2. Your project will have been created for you. Once logged in you can list projects using `oc projects`. If your project is not currently selected, you can use the following command:
 
-    oc new-project <project-name>
+    oc project csc8104-<student-number>
 
 NOTE: You must start `cmd` by navigating to *Start -> Programming and Databases -> Command Prompt - development tools (64bit)* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java, oc) is available.
 
@@ -105,7 +105,7 @@ IMPORTANT: The next command differs depending on whether you are working on your
 [source,bash]
 .*PERSONAL MACHINE*: Create build:
 ----
-oc new-build eap70-openshift~"https://github.com/NewcastleComputingScience/csc8104-your-name.git" \
+oc new-build eap70-openshift~"https://github.com/NCL-CloudComputing/csc8104-your-name.git" \
     --name=csc8104-build \
     --to=csc8104-build-stream \
     --source-secret=github-secret
@@ -114,10 +114,10 @@ oc new-build eap70-openshift~"https://github.com/NewcastleComputingScience/csc81
 [source,bash]
 .*UNIVERSITY MACHINE*: Create build:
 ----
-oc new-build eap70-openshift~"https://github.com/NewcastleComputingScience/csc8104-<your-name>.git" --name=csc8104-build --to=csc8104-build-stream
+oc new-build eap70-openshift~"https://github.com/NCL-CloudComputing/csc8104-<your-name>.git" --name=csc8104-build --to=csc8104-build-stream
 ----
 
-NOTE: Notice that we are creating a new image stream called csc8104-build-stream where our new builds will be placed, and we automatically trigger the first build. *On the University machines this first build will fail, as we can not specify the `--source-secret` through `oc`!*.
+NOTE: Notice that we are creating a new image stream called csc8104-build-stream where our new builds will be placed, and we automatically trigger the first build. *On the University machines this first build will fail, as we can not specify the `--source-secret` through `oc`!*
 
 === View Build
 
@@ -147,7 +147,9 @@ Now that we are successfully building our application into an image, we can crea
 2. Select our deployed image stream `csc8104-build-stream` and enter `latest` in the tag field
 3. Enter an appropriate name, such as `api-deployment`, and select 'Deploy'.
 
-TIP: You can see the status of the current application by accessing *Applications -> Deployments -> api-deployment -> View log*
+TIP: You can see the status of the current application by accessing *Applications -> Deployments -> `api-deployment` -> View log*
+
+WARNING: You have been given access to create multiple pods to allow for rolling deployment. Please *DO NOT* scale your system to use multiple pods to run your application, otherwise rolling deployment will not work.
 
 ==== Create Route
 
@@ -160,10 +162,14 @@ NOTE: The other options should remain as default. The path signifies the endpoin
 
 You will now be able to see a URL that corresponds to the route that has just been made on the overview screen. Selecting this route will link you to the deployment running on the pods underneath.
 
-IMPORTANT: *Once you have completed this stage and have a link to the route for your service, please email Adam Cattermole (a.cattermole@ncl.ac.uk) as soon as possible! I will append this to the document https://github.com/NewcastleComputingScience/csc8104-assignment[here], where you will be able to find links to your colleagues services.*
+IMPORTANT: *Once you have completed this stage and have a link to the route for your service, please email Adam Cattermole (a.cattermole@newcastle.ac.uk) as soon as possible! I will append this to the document https://github.com/NewcastleComputingScience/csc8104-assignment[here], where you will be able to find links to your colleagues services for Part III*
 
-IMPORTANT: The route will not be available straight away. You may have to wait several minutes to access your system underneath. Also please be aware of the https://www.openshift.com/pricing/index.html[limitations] of a *Starter* account. Your service will sleep after 30 minutes of inactivity.
+IMPORTANT: Your application may not be available as soon as you start your route. Navigate to *Applications -> Deployments -> `api-deployment` -> View Log* to see the current output from JBoss EAP for your running service.
 
 === Update Deployment
 
 From here on out, updating your application is as simple as committing to your GitHub repository. You can Start a new build as before from navigating to the build section within the developer console. This will use your most recent version of source code on GitHub to create a new image and add this to the image stream with the `latest` tag. This then triggers the service to attempt a rolling deployment. For more information see link:https://docs.openshift.com/dedicated/dev_guide/deployments/deployment_strategies.html[here].
+
+// === Troubleshooting
+//
+// Make sure you have read all of the details here, as all of the steps are outlined in detail. If you can not fix your issue then ask a demonstrator in a practical, or email Adam Cattermole (a.cattermole@newcastle.ac.uk) for remote assistance.

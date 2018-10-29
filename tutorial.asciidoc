@@ -27,16 +27,13 @@ TIP: GitHub is a very popular service, and you are quite likely to use it in you
 OpenShift is a Platform as a Service (PaaS) Cloud offered by Red Hat.
 It can host many types of applications, but for this coursework you will be using it to host Java EE 7 applications on JBoss EAP.
 
-If you do not already have an account you will need to:
+If you do not already have a Red Hat developers account you will need to:
 
-1. Go to: https://www.openshift.com/
-2. Select *Free Trial*
-3. Select the option for _Developers_, *Sign up now*
-4. Login in with a new or existing RedHat Developers account
-5. Select the free *OpenShift Online Starter* account tier
-6. Continue to confirm default settings
+1. Go to: https://developers.redhat.com/register
+2. Create an account, make a note of the *Red Hat Login ID* that you choose
+3. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number* and *Red Hat Login ID*
 
-At this stage you will be waiting for provisioning to continue. Please refresh your browser to check if you are provided with access to the console (you will receive an email confirming provisioning has completed). If you do not have access after several minutes, please send an email as soon as possible to Adam Cattermole (a.cattermole@ncl.ac.uk), containing the email address associated with your OpenShift account.
+At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation. You will then be able to login using your credentials at https://manage.openshift.com/ to perform further setup.
 
 NOTE: Please return to this section once you have completed the steps below, up to and including <<repository_setup>>. You should be able to run the contacts-swagger quickstart locally, and have your code available within your Git repository.
 

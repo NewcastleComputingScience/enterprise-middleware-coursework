@@ -72,9 +72,7 @@ NOTE: Replace `TOKEN` with the GitHub token that you copied in the previous step
 [source,bash]
 .Create secret:
 ----
-oc create secret generic github-secret \
-    --type=kubernetes.io/basic-auth \
-    --from-literal=password=TOKEN
+oc create secret generic github-secret --type=kubernetes.io/basic-auth --from-literal=password=TOKEN
 ----
 
 [source,bash]
@@ -105,10 +103,7 @@ IMPORTANT: The next command differs depending on whether you are working on your
 [source,bash]
 .*PERSONAL MACHINE*: Create build:
 ----
-oc new-build eap70-openshift~"https://github.com/NCL-CloudComputing/csc8104-your-name.git" \
-    --name=csc8104-build \
-    --to=csc8104-build-stream \
-    --source-secret=github-secret
+oc new-build eap70-openshift~"https://github.com/NCL-CloudComputing/csc8104-<your-name>.git" --name=csc8104-build --to=csc8104-build-stream --source-secret=github-secret
 ----
 
 [source,bash]

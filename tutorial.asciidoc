@@ -29,15 +29,16 @@ It can host many types of applications, but for this coursework you will be usin
 
 If you do not already have a Red Hat developers account you will need to:
 
-1. Go to: https://developers.redhat.com/register
-2. Create an account, make a note of the *Red Hat Login ID* that you choose
-3. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number* and *Red Hat Login ID*
+1. Navigate to: https://manage.openshift.com/accounts/auth/keycloak
+2. Create a Red Hat account, make a note of the *Red Hat Login ID* that you choose
+3. Complete all setup steps, including confirming your email address
+4. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number* and *Red Hat Login ID*
 
 At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation. You will then be able to login using your credentials at https://manage.openshift.com/ to perform further setup.
 
 NOTE: Please return to this section once you have completed the steps below, up to and including <<repository_setup>>. You should be able to run the contacts-swagger quickstart locally, and have your code available within your Git repository.
 
-Once you have completed the steps below, you will now be able to proceed to setup a new build of the quickstart on OpenShift, by following the guide link:./openshift_setup.asciidoc[here].
+*Once you have completed the steps below, you will now be able to proceed to setup a new build of the quickstart on OpenShift, by following the guide link:./openshift_setup.asciidoc[here].*
 
 
 == Environment Setup
@@ -71,12 +72,12 @@ _This section applies to **all students**_
 
 link:https://youtu.be/X0HlR40DkxI?t=4m47s[Tutorial Video - 4m47s]
 
-1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201819-RC1[here].
+1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201920-RC1[here].
 2. Click on the *Source code (zip)* link to obtain the contacts-swagger quickstart
 3. Unzip the download to somewhere on your computer. Be aware this may take some time as there are many files and you are likely writing to your (networked) `H` drive.
-4. Open `cmd.exe` and go to the root directory in the contacts quickstart you just unzipped.
+4. Open a Command Prompt, and go to the root directory in the contacts quickstart you just unzipped.
 
-NOTE: You must start `cmd` by navigating to *Start -> Programming and Databases -> Command Prompt - development tools (64bit)* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java, oc) is available.
+NOTE: You can find a Command Prompt from the Start menu by searching, or start PowerShell using `win+x i`.
 
 === Run the Quickstart
 
@@ -84,7 +85,7 @@ _This section applies to **all students**_
 
 link:https://youtu.be/X0HlR40DkxI?t=6m04s[Tutorial Video - 6m04s]
 
-Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2018_19/[here], up to and including section "Run the Arquillian Tests".
+Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2019_20/[here], up to and including section "Run the Arquillian Tests".
 
 == Working with Git [[repository_setup]]
 
@@ -144,7 +145,7 @@ During development of your application you may find it very useful to be able to
 
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
-Obtain the `h2console.war` file from link:https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.0.0.Final/h2-console[here], copy it into the "standalone/deployments" directory of your *EAP_HOME* directory. You may also need to restart your local JBoss server.
+Obtain the `h2console.war` file from link:https://github.com/jboss-developer/jboss-eap-quickstarts/tree/7.0.0.Final/h2-console[here], copy it into the `standalone/deployments` directory of your *EAP_HOME* directory. You may also need to restart your local JBoss server.
 
 === Accessing h2console
 
@@ -155,13 +156,13 @@ You can access the console at http://localhost:8080/h2console.
 To log into the datasource for your application, use the following details.
 
     Driver Class: javax.naming.InitialContext
-    JDBC URL: Your JDBC URL is available in your persistence.xml file, and can be found between the <jta-data-source> tags e.g. java:jboss/datasources/JbossContactsSwaggerQuickstartDS
+    JDBC URL: java:jboss/datasources/JbossContactsSwaggerQuickstartDS
     Username: sa
     Passowrd: sa
 
-. Click "Test Connection" and if these details are correct you will see "Test successful".
+. Click *Test Connection* and if these details are correct you will see "Test successful".
 
-. Press "Connect" to view the contents of the datasource.
+. Press *Connect* to view the contents of the datasource.
 
 TIP: Your persistence.xml is the configuration file used to specify the connection details to your database. Your persistence.xml file can be found in src/main/resources/META-INF.
 
@@ -177,9 +178,7 @@ An example of swagger documentation can be found link:http://petstore.swagger.io
 
 Another common method of manual testing of APIs is sending http requests from the command line, using a tool called link:http://curl.haxx.se/[cURL].
 
-cURL has not been installed as part of the command line tools on the university machines this year, however it is available as part of Git Bash, if you have any issues please ask a member of the teaching staff. Feel free to install and use this from your own machine also.
-
-To give you an example of how you might use cURL to see what your API is doing, once the QuickStart is running (locally) you could execute the following commands (in cmd.exe):
+To give you an example of how you might use cURL to see what your API is doing, once the QuickStart is running (locally) you could execute the following commands (in a command prompt):
 
 * to see a list of all contacts returned, formatted as JSON and accompanied by all HTTP headers.
 
@@ -187,13 +186,20 @@ To give you an example of how you might use cURL to see what your API is doing, 
 
 * to create a new contact.
 
-    curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
-      \"firstName\": \"Alice\",
-      \"lastName\": \"Bob\",
-      \"email\": \"alice@bob.com\",
-      \"phoneNumber\": \"(231) 111-1111\",
-      \"birthDate\": \"1982-10-26\"
-    }" "http://localhost:8080/api/contacts"
+// ** Unix/Command Prompt:
+
+    curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{\"firstName\": \"Alice\",\"lastName\": \"Bob\",
+\"email\": \"alice@bob.com\",\"phoneNumber\": \"(231) 111-1111\",\"birthDate\": \"1982-10-26\"}" "http://localhost:8080/api/contacts"
+
+// ** PowerShell:
+
+//     Invoke-RestMethod -Method POST -Headers @{'Content-Type' = 'application/json'; 'Accept' = 'application/json'} -Body "{
+//       `"firstName`": `"Alice`",
+//       `"lastName`": `"Bob`",
+//       `"email`": `"alice@bob.com`",
+//       `"phoneNumber`": `"(231) 111-1111`",
+//       `"birthDate`": `"1982-10-26`"
+//     }" "http://localhost:8080/api/contacts"
 
 The *-v* switch instructs curl to display all possible information, whilst the *-X* switch allows you to specify the HTTP method to be used and *-d* the data to be sent.
 

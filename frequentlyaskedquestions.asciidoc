@@ -4,8 +4,7 @@
 You may use any editor with which you are comfortable to perform the coursework. However, we recommend using the version of the popular Eclipse IDE which is included within the Programming IDE's shortcut on each of your machines.
 
 == I get `mvn is not recognized` when running maven commands
-If you are on a University machine then you are likely running the wrong version of `cmd.exe`.
-You must start `cmd` by navigating to *Start -> Programming and Databases -> Command Prompt - development tools (64bit)* as this will configure your `PATH` variables such that all the software necessary for this module (maven, git, java, oc) is available.
+This should no longer be possible on the University cluster machines, however if you get this issue please see one of the course demonstrators for help.
 
 If you are getting this error on your own machine, then you have likely configured your `PATH` incorrectly. We recommend you refer to the https://maven.apache.org/install.html[installation guide] (and Windows Tips) of the Apache Maven documentation.
 
@@ -26,7 +25,7 @@ The general `createTestArchive()` method which we recommend is as follows:
 public static Archive<?> createTestArchive() {
     File[] libs = Maven.resolver().loadPomFromFile("pom.xml")
             .resolve(
-                    "io.swagger:swagger-jaxrs:1.5.15"
+                    "io.swagger:swagger-jaxrs:1.5.16"
     ).withTransitivity().asFile();
 
     return ShrinkWrap

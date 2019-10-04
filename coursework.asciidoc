@@ -9,7 +9,10 @@ In Part One you will build a simple service, hosted on a Platform as a Service C
 
 In Part Two you will implement some advanced functionality upon the base service from Part One, such as cascading updates for related entities and a transactional endpoint.
 
-In Part Three you will create a new, more complex, service. It will make requests to your Part One service, along with those of two colleagues. This service should also be accompanied by more tests and JSON endpoints. These endpoints, and their responses, should match those expected by an link:https://angularjs.org/[AngularJS] client application, which will be provided. If done correctly, you will have a functioning single-page web application (SPA) after this step. It should be noted however that integration with the frontend in the final part of the coursework is entirely optional however.
+In Part Three you will create a new, more complex, service. It will make requests to your Part One service, along with those of two colleagues. This service should also be accompanied by more tests and JSON endpoints.
+// These endpoints, and their responses, should match those expected by an link:https://angularjs.org/[AngularJS] client application, which will be provided.
+// If done correctly, you will have a functioning single-page web application (SPA) after this step. It should be noted however that integration with the frontend in the final part of the coursework is entirely optional however.
+You should end up with a fully functioning booking service for all 3 commodities.
 
 //In Part Four you will implement some advanced functionality upon the complex service from Part Three. Namely: using caching to reduce _upstream_ requests to the simple Part One services.
 
@@ -61,7 +64,7 @@ The easiest way to work, is to deploy your application to a local version of JBo
 
 During parts 1 & 2 you will only test your API through Arquillian tests and one of the other methods presented to you during the tutorial (The Swagger documentation or CURL).
 
-After having completed part 3 of the coursework, if you are trying to "wire up" your service to the provided frontend application, it may help to briefly familiarise yourself with the link:https://angularjs.org/[Angular.js] framework. We suggest going through the link:https://docs.angularjs.org/tutorial[official tutorial] to achieve this.
+After having completed part 3 of the coursework, if you are trying to "wire up" your service to the provided frontend application, it may help to briefly familiarise yourself with the link:https://angularjs.org/[Angular.js] framework. We suggest going through the link:https://docs.angularjs.org/tutorial[official tutorial] to achieve this. Please note, there are *no marks* provided for the AngularJS integration, and that this is entirely optional.
 
 == Part 1
 
@@ -226,6 +229,8 @@ As with Part 1, you should document your API endpoints using Swagger @Annotation
 
 === Frontend application _(Optional)_
 
+WARNING: This section is now mostly deprecated and untested. *No marks* are provided for the integration.
+
 You have been provided with a complete frontend for your Travel Agent application, written in Javascript using the link:https://angularjs.org/[Angular.js] framework. This code found in the contacts-swagger quickstart in `src/main/webapp/travelagent/`. When your service is deployed, the frontend application will be accessible at link:http://localhost:8080/travelagent/[localhost:8080/travelagent/]
 
 You may modify this frontend application to correctly interact with, and act as a client for, the TravelAgent API you have produced.
@@ -285,7 +290,7 @@ The application will also generally provide appropriate visual indication of the
 === Demonstration
 Prior to submission you will provide a 10-15 minute demonstration to one of the Course Demonstrators. You will be expected to describe your technical solution and discuss your personal experiences throughout the project.
 
-A sign-up sheet for demonstration slots will be made available in the Computer clusters during the first week of practical sessions.
+A sign-up sheet for demonstration slots will be sent via email during the first week of practical sessions. It is very important that you demonstrate your work, failing to do so may result in a loss of marks.
 
 === Coursework submission
 You must submit all work via the coursework submission system (NESS).

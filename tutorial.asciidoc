@@ -32,7 +32,7 @@ If you do not already have a Red Hat developers account you will need to:
 1. Navigate to: https://manage.openshift.com/accounts/auth/keycloak
 2. Create a Red Hat account, make a note of the *Red Hat Login ID* that you choose
 3. Complete all setup steps, including confirming your email address
-4. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number* and *Red Hat Login ID*
+4. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number*, *GitHub Username*, and *Red Hat Login ID*
 
 At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation. You will then be able to login using your credentials at https://manage.openshift.com/ to perform further setup.
 
@@ -72,7 +72,7 @@ _This section applies to **all students**_
 
 link:https://youtu.be/X0HlR40DkxI?t=4m47s[Tutorial Video - 4m47s]
 
-1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201920-RC1[here].
+1. Visit the NewcastleComputingScience/jboss-wfk-quickstarts github repo release page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/releases/tag/v2.7.0%2BNCL201920-RC2[here].
 2. Click on the *Source code (zip)* link to obtain the contacts-swagger quickstart
 3. Unzip the download to somewhere on your computer. Be aware this may take some time as there are many files and you are likely writing to your (networked) `H` drive.
 4. Open a Command Prompt, and go to the root directory in the contacts quickstart you just unzipped.
@@ -99,7 +99,7 @@ This section will show you how to create a copy of the 'contacts-swagger' exampl
 
 * Clone your original private repository from GitHub to a location where you would like to perform your work (correct the url to that of your private repository).
 
-    git clone https://github.com/NewcastleComputingScience/csc8104-your-repo.git
+    git clone https://github.com/NCL-CloudComputing/csc8104-your-repo.git
 
 * Copy the contents of the contacts-swagger quickstart into your private repository, which you downloaded in step <<obtain_quickstart>>.
 * Now you need to push this code to your git repository on GitHub.

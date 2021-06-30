@@ -32,7 +32,7 @@ If you do not already have a Red Hat developers account you will need to:
 1. Navigate to: https://manage.openshift.com/accounts/auth/keycloak
 2. Create a Red Hat account, make a note of the *Red Hat Login ID* that you choose
 3. Complete all setup steps, including confirming your email address
-4. Send an email to Adam Cattermole (a.cattermole@newcastle.ac.uk) with your *student number*, *GitHub Username*, and *Red Hat Login ID*
+4. Send an email to Adam Booth (A.Booth2@newcastle.ac.uk) with your *student number*, *GitHub Username*, and *Red Hat Login ID*
 
 At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation. You will then be able to login using your credentials at https://manage.openshift.com/ to perform further setup.
 

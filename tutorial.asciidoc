@@ -63,7 +63,7 @@ Therefore, it is very important that you get this working and become familiar wi
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
 1. Go link:https://developers.redhat.com/products/eap/download/[here].
-2. Download the zip distribution of JBoss EAP 7.0.0. _Note:_ You need to make sure you use this version of JBoss EAP as this matches the version you will be using on OpenShift. You will be required to login with your RedHat Developers account, and provide some additional details as part of the download process.
+2. Download the zip distribution of JBoss EAP 7.3.0. _Note:_ You need to make sure you use this version of JBoss EAP as this matches the version you will be using on OpenShift. You will be required to login with your RedHat Developers account, and provide some additional details as part of the download process.
 3. Unzip JBoss EAP to somewhere on your computer.
 
 === Obtain the Contacts-Swagger Quickstart [[obtain_quickstart]]

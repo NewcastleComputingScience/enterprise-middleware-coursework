@@ -15,11 +15,13 @@ You will use it to host your code and to make it available to the demonstrators.
 GitHub is very popular in the open-source community and works best when you make your code available to others to view, clone and contribute towards.
 However, given the confidential nature of your coursework, you will need to use a private repository only accessible by yourself and the demonstrators.
 
+A private repository will be created for you which you will be given access to once the lead demonstrator has been provided with your GitHub username (see steps below).
+
 If you do not already have an account you will need to:
 
 1. Go to: https://github.com/
 2. Fill in your details and select "Sign up for GitHub."
-3. Obtain a private repository. The steps to do this should have been provided to you already.
+3. Obtain a private repository.
 
 TIP: GitHub is a very popular service, and you are quite likely to use it in your professional career; especially if you work with open source software in some capacity.
 
@@ -27,14 +29,17 @@ TIP: GitHub is a very popular service, and you are quite likely to use it in you
 OpenShift is a Platform as a Service (PaaS) Cloud offered by Red Hat.
 It can host many types of applications, but for this coursework you will be using it to host Java EE 7 applications on JBoss EAP.
 
-If you do not already have a Red Hat developers account you will need to:
+You will be using the OpenShift Developer Sandbox to develop and test your applications. The developer sandbox automatically deallocates your application after 8 hours. This restriction will be removed from your account towards the end of the module. 
 
-1. Navigate to: https://manage.openshift.com/accounts/auth/keycloak
-2. Create a Red Hat account, make a note of the *Red Hat Login ID* that you choose
+To create a Red Hat account and access the developer sandbox environment:
+
+1. Navigate to: https://developers.redhat.com/developer-sandbox/get-started
+2. Click the Launch your Developer Sandbox for Red Hat OpenShift button
+3. Click Register for a Red Hat account
 3. Complete all setup steps, including confirming your email address
 4. Send an email to Adam Booth (A.Booth2@newcastle.ac.uk) with your *student number*, *GitHub Username*, and *Red Hat Login ID*
 
-At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation. You will then be able to login using your credentials at https://manage.openshift.com/ to perform further setup.
+At this stage you will be waiting for provisioning to continue. Once we have setup a project and provided you with access you will receive an email confirmation.
 
 NOTE: Please return to this section once you have completed the steps below, up to and including <<repository_setup>>. You should be able to run the contacts-swagger quickstart locally, and have your code available within your Git repository.
 
@@ -49,8 +54,11 @@ link:https://youtu.be/X0HlR40DkxI?t=2m48s[Tutorial Video - 2m48s]
 
 This coursework depends upon several software packages / development tools. You must ensure you follow the instructions to install the following:
 
+* link:https://jdk.java.net/java-se-ri/12[Java 12]
 * link:https://git-scm.com/[Git]
 * link:https://maven.apache.org/[Maven]
+
+NOTE: More recent versions of Java are not supported by JBoss 7.3.0. It is a strict requirement that you must use Java 11 or 12 to ensure compatibility for this coursework. Using higher versions of Java can cause errors in your deployment. If you are seeing build errors, check that your default Java version is Java 11 or 12.
 
 == Run Example
 
@@ -85,7 +93,7 @@ _This section applies to **all students**_
 
 link:https://youtu.be/X0HlR40DkxI?t=6m04s[Tutorial Video - 6m04s]
 
-Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2019_20/[here], up to and including section "Run the Arquillian Tests".
+Step through the instructions on the Contacts-Swagger quickstart page link:https://github.com/NewcastleComputingScience/jboss-wfk-quickstarts/tree/ncl_fixes_2021_22[here], up to and including section "Run the Arquillian Tests".
 
 == Working with Git [[repository_setup]]
 

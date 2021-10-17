@@ -2,11 +2,11 @@
 
 OpenShift 4 is RedHat's Platform as a Service (PaaS) offering. The system wraps around Kubernetes, and so some of the commands and terminology used refers to the underlying infrastructure. The system consists of deploying applications from images where we can easily recreate and scale up and down services. A service can consist of many different 'pods', which are instances of our application to permit distribution of load. For more information see link:https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/[What is Kubernetes?]. For your coursework, you will have a single service running which will contain your API and have a single running pod.
 
-Make sure that you fully complete the instructions listed here, up to the point where you must email Adam Cattermole (a.cattermole@newcastle.ac.uk) with your Route information!
+Make sure that you fully complete the instructions listed here, up to the point where you must email Adam Booth (a.booth2@newcastle.ac.uk) with your Route information!
 
 // NOTE: Please check the limitations of the *Starter* accounts https://www.openshift.com/pricing/index.html[here]. In particular; "Your project resources sleep after 30 minutes of inactivity, and must sleep 18 hours in a 72 hour period".
 
-Once you have completed the instructions here you expect your OpenShift resources to be similar to the following image.
+Once you have completed the instructions here you should expect your OpenShift resources to be similar to the following image.
 
 image::images/openshift-overview.png["OpenShift Overview",align="center"]
 
@@ -24,21 +24,17 @@ Once your OpenShift account has been successfully provisioned (as mentioned abov
 
 ==== Setup OpenShift CLI
 
-From the console you must select the information button in the top right, and then command line tools.
-
 _This section of the tutorial only applies to students working on *their own* machines, not those provided by the university!_
 
-* From link:https://console.pro-us-east-1.openshift.com/console/command-line[here] you can follow the instructions to install the `oc` CLI for your platform
+* From link:https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html#cli-getting-started[here] you can follow the instructions to install the `oc` CLI for your platform
 
 _This section applies to **all students**_
 
-1. To login to `oc` navigate to the main OpenShift dashboard and select *Copy Login Command* from the account menu and paste it into `cmd`. This command contains your personal access token.
+To login to `oc` navigate to the main OpenShift dashboard and select *Copy Login Command* from the account menu and paste it into `cmd`. This command contains your personal access token.
 
-    oc login https://api.pro-us-east-1.openshift.com --token=<hidden>
+    oc login --token=<HIDDEN> --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443
 
-2. Your project will have been created for you. Once logged in you can list projects using `oc projects`. If your project is not currently selected, you can use the following command:
-
-    oc project csc8104-<student-number>
+Once logged in, OpenShift oc will automatically select your default developer project.
 
 IMPORTANT: *To access the OpenShift CLI tool `oc` on University machines, navigate to `Start -> OpenShift -> OpenShift CLI`*
 
@@ -55,7 +51,7 @@ To permit OpenShift to access and view your private repositories, you must creat
 2. Select 'Generate new token'
 3. Provide the token with the `repo` scope (Full control of private repositories), and give the token an appropriate description, such as 'OpenShift'
 
-IMPORTANT: Make sure you either copy the token or do not navigate away from this page for now! as GitHub states, you will only have to the token while on that page
+IMPORTANT: Make sure you either copy the token or do not navigate away from this page for now! As GitHub states, you will only have access to the token while on that page
 
 === Create a new Secret [[openshift_secret]]
 
@@ -77,7 +73,7 @@ oc create secret generic github-secret --type=kubernetes.io/basic-auth --from-li
 [source,bash]
 .Add to secret builder:
 ----
-oc secrets add serviceaccount/builder secrets/github-secret
+oc secrets link builder secret/github-secret
 ----
 
 == Deploying the Quickstart
@@ -86,33 +82,33 @@ link:https://youtu.be/X0HlR40DkxI?t=17m20s[Tutorial Video - 17m20s]
 
 === JBoss EAP Image Stream
 
-We need to create a new JBoss EAP Image Stream by importing from the RedHat container registry. This will sit as a base for our application to be built on top of. The current latest version of this image stream can be found  https://access.redhat.com/containers/#/registry.access.redhat.com/jboss-eap-7/eap70-openshift[here]. Run the command below to drag this image stream into the local namespace.
+We need to create a new JBoss EAP Image Stream by importing from the RedHat container registry. This will sit as a base for our application to be built on top of. The current latest version of this image stream can be found  https://catalog.redhat.com/software/containers/jboss-eap-7/eap73-openjdk11-openshift-rhel8/5df2b327d70cc54e2d109df8?container-tabs=overview[here]. Run the command below to drag this image stream into the local namespace.
 
 [source,bash]
 ----
-oc import-image my-jboss-eap-7/eap70-openshift --from=registry.access.redhat.com/jboss-eap-7/eap70-openshift --confirm
+oc import-image my-eap-7/eap73-openjdk11 --from=registry.redhat.io/jboss-eap-7/eap73-openjdk11-openshift-rhel8 --confirm
 ----
 
 === Create Build
 
-The next stage is to create a new build using the JBoss EAP 7 image stream as a base with our application running on top of it. Use the command below to create a new build from your private repository. *Make sure to change the link to the correct location of your repository.* We provide the `github-secret` that we created prior to allow OpenShift to be able to pull code from our private repository!
+The next stage is to create a new build using the JBoss EAP 7.3 image stream as a base with our application running on top of it. Use the command below to create a new build from your private repository. *Make sure to change the link to the correct location of your repository.* We provide the `github-secret` that we created prior to allow OpenShift to be able to pull code from our private repository!
 
 [source,bash]
 ----
-oc new-build eap70-openshift~"https://github.com/NCL-CloudComputing/csc8104-<your-name>.git" --name=csc8104-build --to=csc8104-build-stream --source-secret=github-secret
+oc new-build eap73-openjdk11~"https://github.com/NCL-CloudComputing/csc8104-<your-name>.git" --name=csc8104-build --to=csc8104-build-stream --source-secret=github-secret
 ----
 
 NOTE: Notice that we are creating a new image stream called csc8104-build-stream where our new builds will be placed, and we automatically trigger the first build.
 
 === View Build
 
-From the OpenShift web based developer console, access *Builds -> Builds -> csc8104-build*. Here is a list of the builds for your application.
+From the OpenShift web based developer console, access your build by navigating to *Builds -> csc8104-build*.
 
-From this location you can trigger new builds by selecting the *Start Build* button. This will automatically clone your source from the GitHub repository if set up correctly.
+From this location you can trigger new builds by selecting the *Actions -> Start Build* button. This will automatically clone your source from the GitHub repository if set up correctly.
 
 TIP: If you are working in a different branch to master you can adjust the Git Reference field to point to that branch
 
-IMPORTANT: You can view the progress of the build by pressing *View Log*. This may be useful for debugging why your images do not build.
+IMPORTANT: You can view the progress of the build by pressing *Logs*. This may be useful for debugging why your images do not build.
 
 Once our image builds successfully it is pushed to the image stream that we created, called `csc8104-build-stream`. Our most recent image is given the `latest` tag.
 
@@ -123,32 +119,27 @@ link:https://youtu.be/X0HlR40DkxI?t=20m24s[Tutorial Video - 20m24s]
 
 Now that we are successfully building our application into an image, we can create a deployment. This will create a new service and deploy a new container (pod) with our image running.
 
-1. From the project overview within the developer console, select *Deploy Image*
-2. Select our deployed image stream `csc8104-build-stream` and enter `latest` in the tag field
-3. Enter an appropriate name, such as `api-deployment`, and select *Deploy*.
+1. From the project overview within the developer console, click the *+Add* button.
+2. Click the *Container images* option.
+3. Select *Image stream tag from internal registry*.
+4. Select the *csc8104-build-stream* in the Image Stream dropdown list.
+5. Select *latest* in the Tag dropdown list.
+6. Accept all defaults and ensure that *Create a route to the Application* is checked.
+7. Click *Create*.
 
-TIP: You can see the status of the current application by accessing *Applications -> Deployments -> `api-deployment` -> View log*
+TIP: You can see the status of the current application by visiting the *Project* tab.
 
 WARNING: You have been given access to create multiple pods to allow for rolling deployment. Please *DO NOT* scale your system to use multiple pods to run your application, otherwise rolling deployment will not work.
 
-==== Create Route
+To access the public URL given for your application, go to *Project -> Route* and copy the Location value.
 
-Return to the project overview screen. From here you can now Create a Route that provides us with access to the application. This is similar to exposing containers in the world of Docker, and provides us with a link to our application underneath. When using Kubernetes, load balancing can be provided for the service, which enables redirecting of traffic to different pods by use of this route. Follow the instructions below to create a route for your service:
+IMPORTANT: *Once you have completed this stage and have a link to the route for your service, please email Adam Booth (a.booth2@newcastle.ac.uk) as soon as possible! I will append this to the document https://github.com/NewcastleComputingScience/csc8104-assignment[here], where you will be able to find links to your colleagues services for Part III*
 
-1. Select *Create Route* from the Overview screen, under the external traffic section
-2. Pick a name for the route, such as `api-deployment`
-
-NOTE: The other options should remain as default. The path signifies the endpoint of our application, '/' is simply the root level. Our service is the application we want to expose, which is the deployment we have just made. The port to expose is that of the default for JBoss EAP, 8080.
-
-You will now be able to see a URL that corresponds to the route that has just been made on the overview screen. Selecting this route will link you to the deployment running on the pods underneath.
-
-IMPORTANT: *Once you have completed this stage and have a link to the route for your service, please email Adam Cattermole (a.cattermole@newcastle.ac.uk) as soon as possible! I will append this to the document https://github.com/NewcastleComputingScience/csc8104-assignment[here], where you will be able to find links to your colleagues services for Part III*
-
-IMPORTANT: Your application may not be available as soon as you start your route. Navigate to *Applications -> Deployments -> `api-deployment` -> View Log* to see the current output from JBoss EAP for your running service.
+IMPORTANT: Your application may not be available as soon as you start your route. Navigate to *Project -> Pod -> `running pod` -> Logs* to see the current output from JBoss EAP for your running service.
 
 === Update Deployment
 
-From here on out, updating your application is as simple as committing to your GitHub repository. You can Start a new build as before from navigating to the build section within the developer console. This will use your most recent version of source code on GitHub to create a new image and add this to the image stream with the `latest` tag. This then triggers the service to attempt a rolling deployment. For more information see link:https://docs.openshift.com/dedicated/dev_guide/deployments/deployment_strategies.html[here].
+From here on out, updating your application is as simple as committing to your GitHub repository. You can Start a new build as before from navigating to the Builds section within the developer console and selecting your build. Then in the Actions menu, click *Start Build*. This will use your most recent version of source code on GitHub to create a new image and add this to the image stream with the `latest` tag. This then triggers the service to attempt a rolling deployment. For more information see link:https://docs.openshift.com/dedicated/dev_guide/deployments/deployment_strategies.html[here].
 
 // === Troubleshooting
 //

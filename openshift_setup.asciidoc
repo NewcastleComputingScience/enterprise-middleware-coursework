@@ -14,7 +14,7 @@ image::images/openshift-overview.png["OpenShift Overview",align="center"]
 
 === Environment Setup
 
-link:https://youtu.be/X0HlR40DkxI?t=12m53s[Tutorial Video - 12m53s]
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=29m15s[Tutorial Video - 29m15s]
 
 At this stage you should have the accounts setup and the required applications installed to deploy your application to OpenShift. If you are not currently at this stage please refer to the link:./tutorial.asciidoc[tutorial] document.
 
@@ -43,7 +43,7 @@ Once you have completed these steps you should have successfully created an Open
 
 === GitHub Access Token [[github_token]]
 
-link:https://youtu.be/X0HlR40DkxI?t=15m44s[Tutorial Video - 15m44s]
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=33m10s[Tutorial Video - 33m10s]
 
 To permit OpenShift to access and view your private repositories, you must create a personal access token. This provides a secure method for an application to authenticate itself either over HTTPS calls or through use of the Git API.
 
@@ -55,7 +55,7 @@ IMPORTANT: Make sure you either copy the token or do not navigate away from this
 
 === Create a new Secret [[openshift_secret]]
 
-link:https://youtu.be/X0HlR40DkxI?t=16m34s[Tutorial Video - 16m34s]
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=34m22s[Tutorial Video - 34m22s]
 
 We need to create a secret using this GitHub token, which we can then use to permit builds from our source code.
 
@@ -78,7 +78,7 @@ oc secrets link builder secret/github-secret
 
 == Deploying the Quickstart
 
-link:https://youtu.be/X0HlR40DkxI?t=17m20s[Tutorial Video - 17m20s]
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=36m04s[Tutorial Video - 36m04s]
 
 === JBoss EAP Image Stream
 
@@ -115,7 +115,7 @@ Once our image builds successfully it is pushed to the image stream that we crea
 
 === Create Deployment
 
-link:https://youtu.be/X0HlR40DkxI?t=20m24s[Tutorial Video - 20m24s]
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=38m26s[Tutorial Video - 38m26s]
 
 Now that we are successfully building our application into an image, we can create a deployment. This will create a new service and deploy a new container (pod) with our image running.
 
@@ -138,6 +138,8 @@ IMPORTANT: *Once you have completed this stage and have a link to the route for 
 IMPORTANT: Your application may not be available as soon as you start your route. Navigate to *Project -> Pod -> `running pod` -> Logs* to see the current output from JBoss EAP for your running service.
 
 === Update Deployment
+
+link:https://www.youtube.com/watch?v=jAj5AlNr0LE&t=41m19s[Tutorial Video - 41m19s]
 
 From here on out, updating your application is as simple as committing to your GitHub repository. You can Start a new build as before from navigating to the Builds section within the developer console and selecting your build. Then in the Actions menu, click *Start Build*. This will use your most recent version of source code on GitHub to create a new image and add this to the image stream with the `latest` tag. This then triggers the service to attempt a rolling deployment. For more information see link:https://docs.openshift.com/dedicated/dev_guide/deployments/deployment_strategies.html[here].
 

@@ -149,6 +149,7 @@ Due to using the OpenShift developer sandbox in the module, your services will b
 
 To redeploy your application, go to *Project -> Deployment -> csc8104-build-stream* in OpenShift and press the up arrow once. This will automatically deploy a new pod for your application and will remain available for eight hours. 
 
+A demonstration of redeploying the application is provided link:https://www.youtube.com/watch?v=kD0C306-3Tg[here].
 
 // === Troubleshooting
 //

@@ -105,4 +105,4 @@ ____
  * Cascading deletion of related entities. Specifically, if a Commodity entity is deleted then any bookings made for it should also be deleted. Likewise, if a Customer entity is deleted, any bookings made by it should also be deleted.
 ____
 
-This is obviously inconsistent and confusing, for which I apologise. The intention is that you do not need to provide delete operations for part 1. You will be able to get full marks for part 1 without having them there, however, they should be added when performing part 2, in order to verify that you have properly implemented relationship annotations and cascading deletes.
+This is obviously inconsistent and confusing, for which I apologise. The intention is that you do not need to provide delete operations for part 1. You will be able to get full marks for part 1 without having them there, however, they should be added when performing part 2, in order to verify that you have properly implemented relationship annotations and cascading deletes. 
